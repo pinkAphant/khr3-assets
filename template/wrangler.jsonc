@@ -1,0 +1,16 @@
+{
+  "name": "my-khr3-vault",
+  "main": "worker.ts",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site-dist",
+    "binding": "SITE_ASSETS",
+    "run_worker_first": ["/assets/*", "/api/*", "/admin/*"]
+  },
+  "r2_buckets": [
+    {
+      "binding": "ASSETS_BUCKET",
+      "bucket_name": "my-khr3-assets"
+    }
+  ]
+}

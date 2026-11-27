@@ -1,0 +1,73 @@
+{
+  "name": "@khr3/assets",
+  "version": "0.2.9",
+  "description": "Self-hosted Cloudflare R2 asset vault Worker, CORS .glb CDN, and zero-dependency client helper for khr3.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js"
+    },
+    "./worker": {
+      "types": "./dist/worker.d.ts",
+      "import": "./dist/worker.js"
+    },
+    "./gate": {
+      "types": "./dist/gate.d.ts",
+      "import": "./dist/gate.js"
+    },
+    "./catalog": {
+      "types": "./dist/catalog.d.ts",
+      "import": "./dist/catalog.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "template",
+    "LICENSE",
+    "README.md",
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
+  "keywords": [
+    "khr3",
+    "cloudflare",
+    "r2",
+    "workers",
+    "glb",
+    "gltf",
+    "assets",
+    "threejs",
+    "r3f"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinkAphant/khr3-assets.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit && tsc --noEmit -p example/tsconfig.json",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "test": "rm -rf dist && tsc && { node --test \"dist/**/*.test.js\"; s=$?; rm -f dist/*.test.* dist/*/*.test.*; exit $s; }",
+    "example": "tsx example/index.ts",
+    "prepack": "npm run build",
+    "pack:dry": "npm pack --dry-run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.8.0"
+  }
+}
